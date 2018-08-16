@@ -1,0 +1,77 @@
+
+<div class="m-content">
+	<div class="m-alert m-alert--icon m-alert--air m-alert--square alert alert-dismissible m--margin-bottom-30" role="alert">
+		<div class="m-alert__icon">
+			<i class="flaticon-exclamation m--font-brand"></i>
+		</div>
+		<div class="m-alert__text">
+			Infinite 99 will not be liable for any stolen codes. Please don't let anyone know your account details like password and email and also please don't forget to logout after use.
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="m-portlet">
+				<div class="m-portlet__body">
+					<div class="m-form m-form--label-align-right m--margin-top-20 m--margin-bottom-30">
+						<div class="row">
+							<div class="col-md-4">
+								<!-- <label>Mode of Payments:</label>
+								<h3>GCASH: 09059573619</h3> -->
+							</div>
+						</div>
+						<br>
+						<div class="row">
+							<div class="col-md-4">
+								<div class="m-input-icon m-input-icon--left">
+									<input placeholder="Search" type="text" id="generalSearch" class="form-control m-input m-input--solid" name="">
+									<span class="m-input-icon__icon m-input-icon__icon--left">
+										<span>
+											<i class="la la-search"></i>
+										</span>
+									</span>
+								</div>
+							</div>
+							<div class="col-md-8">
+								<!-- <a href="" class="pull-right btn btn-accent m-btn m-btn--custom m-btn--icon m-btn--air m-btn--pill" data-toggle="modal" data-target="#myModal"> -->
+								<a href="" class="pull-right btn btn-accent m-btn m-btn--custom m-btn--icon m-btn--air m-btn--pill" (click)="request()">
+									<span>
+										Request Code
+									</span>
+								</a>
+							</div>
+						</div>
+					</div>
+					<div class="m-datatable" id="projects"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Upload Receipt</h4>
+      </div>
+      <div class="modal-body">
+        <p style="color:red; font-size: 12px;">***After Uploading we will verify the receipt within 2-3 business days</p>
+        <label>Mode of Patment</label>
+        <select class="form-control m-input">
+        	<option>GCASH</option>
+        	<option>PALAWAN</option>
+        	<option>Coins PH</option>
+        </select>
+        <label>Receipt</label>
+        <input type="file" class="form-control m-input" name="">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>

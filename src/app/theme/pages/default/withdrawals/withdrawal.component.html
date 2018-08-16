@@ -1,0 +1,96 @@
+
+<div class="m-content">
+	<div class="m-alert m-alert--icon m-alert--air m-alert--square alert alert-dismissible m--margin-bottom-30" role="alert">
+		<!-- <div class="m-alert__icon">
+			<i class="flaticon-exclamation m--font-brand"></i>
+		</div>
+		<div class="m-alert__text"  >
+			Available for WIthdrawal:
+		</div> -->
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+			<div class="m-portlet">
+				<div class="m-portlet__body">
+					<div class="m-form m-form--label-align-right m--margin-top-20 m--margin-bottom-30">
+						<br>
+						<div class="row">
+							<div class="col-md-4">
+								<div class="m-input-icon m-input-icon--left">
+									<input placeholder="Search" type="text" id="generalSearch" class="form-control m-input m-input--solid" name="">
+									<span class="m-input-icon__icon m-input-icon__icon--left">
+										<span>
+											<i class="la la-search"></i>
+										</span>
+									</span>
+								</div>
+							</div>
+							<div class="col-md-8">
+								<a href="" class="pull-right btn btn-accent m-btn m-btn--custom m-btn--icon m-btn--air m-btn--pill" data-toggle="modal" data-target="#myModal">
+									<span>
+										Request Withdrawals
+									</span>
+								</a>
+							</div>
+						</div>
+					</div>
+					<div class="m-datatable" id="withdrawals"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Request Withdrawal</h4>
+      </div>
+      <div class="modal-body">
+        <p style="color:red; font-size: 12px;">***Please Double Check your accounts ! before clicking the withdraw button. The Company will not be liable for any loss of transactions</p>
+        <label>Mode of Withdrawal</label>
+        <select [(ngModel)]="model.method" #method="ngModel" class="form-control m-input">
+        	<option value="Gcash">GCASH</option>
+        	<option value="Palawan">PALAWAN</option>
+        	<option value="Coins.ph">Coins PH</option>
+        </select>
+        <!-- GCASH -->
+        <label *ngIf="model.method == 'Gcash'">Gcash Number</label>
+        <input type="number" #value="ngModel" *ngIf="model.method == 'Gcash'" [(ngModel)]="json.phone" placeholder="Phone Number for gcash ex. 09051234567" class="form-control m-input" name="phoneNumber">
+
+        <!-- PALAWAN -->
+        <label *ngIf="model.method == 'Palawan'">Complete Name</label>
+        <input type="text" #value="ngModel" *ngIf="model.method == 'Palawan'" [(ngModel)]="json.name" placeholder="Name" class="form-control m-input" name="name">
+
+        <label *ngIf="model.method == 'Palawan'">Address</label>
+        <input type="text" #value="ngModel" *ngIf="model.method == 'Palawan'" [(ngModel)]="json.address" placeholder="Address" class="form-control m-input" name="address">
+
+        <label *ngIf="model.method == 'Palawan'">Phone Number</label>
+        <input type="text" #value="ngModel" *ngIf="model.method == 'Palawan'" [(ngModel)]="json.phone" placeholder="Phone Number" class="form-control m-input" name="phone">
+
+        <!-- Coins.ph -->
+
+        <label *ngIf="model.method == 'Coins.ph'">Email</label>
+        <input type="text" #value="ngModel" *ngIf="model.method == 'Coins.ph'" [(ngModel)]="json.email" placeholder="Email" class="form-control m-input" name="email">
+
+        <label *ngIf="model.method == 'Coins.ph'">Wallet Address</label>
+        <input type="text" #value="ngModel" *ngIf="model.method == 'Coins.ph'" [(ngModel)]="json.walletAddress" placeholder="Wallet Address" class="form-control m-input" name="wallet">
+
+        <label *ngIf="model.method == 'Coins.ph'">Phone</label>
+        <input type="number" #value="ngModel" *ngIf="model.method == 'Coins.ph'" [(ngModel)]="json.phone" placeholder="Phone Number related to coins.ph" class="form-control m-input" name="phoneNumber">
+
+        <label>Amount</label>
+        <input type="number" #amount="ngModel" [(ngModel)]="model.amount" placeholder="Amount" class="form-control m-input" name="">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button class="btn btn-success" (click)="withdraw()">Submit</button>
+      </div>
+    </div>
+
+  </div>
+</div>

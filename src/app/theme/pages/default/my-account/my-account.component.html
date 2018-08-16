@@ -1,0 +1,61 @@
+<div class="m-content">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="m-portlet">
+				<div class="m-portlet__body">
+					<div class="m-form m-form--label-align-right m--margin-top-20 m--margin-bottom-30">
+						<div class="row">
+							<div class="col-md-12" *ngIf="!isActivated">
+								<a href="" class="pull-right btn btn-accent m-btn m-btn--custom m-btn--icon m-btn--air m-btn--pill" data-toggle="modal" data-target="#myModal">
+									<span>
+										Activate
+									</span>
+								</a>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-6">
+								<p>Name: {{model.firstName}} {{model.lastName}}</p>
+								<p>Email: {{model.email}}</p>
+								<p>
+									Account Status:
+									<span *ngIf="isActivated;else content">
+										Activated
+									</span>
+									<ng-template #content>Not yet Activated
+										
+									</ng-template>
+								</p>
+							</div>
+							<div class="col-md-6">
+								<p>Referral Link: <span><input type="" class="form-control m-input" value="http://167.99.206.214/login?r={{model.refCode}}" name="" disabled></span></p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div id="myModal" class="modal fade" role="dialog">
+	<div class="modal-dialog">
+
+		<!-- Modal content-->
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title">Upload Receipt</h4>
+				</div>
+				<div class="modal-body">
+					<p style="color:red; font-size: 12px;">***Account activate</p>
+					<p>Please Enter the code: </p>
+					<p>EX: 1234-abcd-56ef-zzzz</p>
+					<input type="text" class="form-control m-input" name="code" [(ngModel)]="code">
+				</div>
+			<div class="modal-footer">
+			<button type="button" (click)="activate()" class="btn btn-success">submit</button>
+			</div>
+		</div>
+
+	</div>
+</div>
